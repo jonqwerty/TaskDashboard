@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import logo from "./logo.svg"
+import "./App.css"
+import InputField from "./components/InputField"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let name: string
+let age: number
+let house: number | string
+
+let isStudent: boolean
+let hobbis: string[]
+let role: [number, string]
+
+let country: any
+let city: unknown
+
+type Person = {
+  name: "string"
+  age?: "number"
 }
 
-export default App;
+let printName: (name: string) => void // returns undefined
+let printHome: (name: string) => never // returns nothing
+
+let person: Person
+
+let listOfPersons: Person[]
+
+//  type  vs interface
+
+type Man = {
+  name: "string"
+  age?: "number"
+}
+
+interface Woman {
+  name: "string"
+  age?: "number"
+}
+
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>("")
+
+  return (
+    <div className="App">
+      <span className="heading">Task dashboard</span>
+      <InputField todo={todo} setTodo={setTodo} />
+    </div>
+  )
+}
+
+export default App
