@@ -3,6 +3,7 @@ import logo from "./logo.svg"
 import "./App.css"
 import InputField from "./components/InputField"
 import { Todo } from "./model"
+import TodoList from "./components/TodoList"
 
 let name: string
 let age: number
@@ -55,6 +56,8 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading">Task dashboard</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   )
 }
